@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Datepicker - Rainbow</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../static/libs/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="../static/libs/rainbow/rainbow-ui@1.2.9.min.css">
+    <link rel="stylesheet" href="../static/libs/highlight/highlight@9.12.0.min.css">
+    <link rel="stylesheet" href="../static/libs/highlight/vs.min.css">
+    <script src="../static/libs/vue/vue.js"></script>
+    <script src="../static/libs/rainbow/rainbow-ui@1.2.9.min.js"></script>
+    <script src="../static/libs/highlight/highlight@9.12.0.min.js"></script>
+    <style>
+      [v-cloak] {
+        display: none;
+      }
+      .demo-header{
+        height: 60px;
+      }
+      .demo-header h1{
+        font-family: 'Operator Mono', Consolas,Menlo,Courier,monospace;
+      }
+      pre code{
+        font-family: 'Operator Mono', Consolas,Menlo,Courier,monospace;
+        line-height: 2;
+      }
+      pre textarea{
+        display: none;
+      }
+      .hljs{
+        background-color: #f7f7f7;
+      }
+      .hljs-name{
+        color: #6089ec;
+        font-weight: normal;
+      }
+      
+      .anchor{
+        margin-top: 30px;
+      }
+      .anchor h2, .anchor h3{
+        margin-bottom: 10px;
+      }
+      
+      .margin-top-10{
+        margin-top: 10px;
+      }
+      
+      .api table{
+        font-family: 'Operator Mono', Consolas,Menlo,Courier,monospace;
+      }
+      .api table th{
+        white-space: nowrap;
+      }
+      
+      
+    </style>
+  </head>
+  <body>
+    <r-app id="app" v-cloak>
+      <r-row slot="header" align-items="center" class="demo-header">
+        <r-col :span="3" style="padding-left: 10px; color: #409EFF">
+          <h1>Rainbow</h1>
+        </r-col>
+        <r-col :span="4">
+          <r-select placeholder="搜索组件..." filterable v-model="common.componentValue">
+            <r-select-option label="Grid栅格" value="grid"></r-select-option>
+            <r-select-option label="App布局" value="app"></r-select-option>
+            <r-select-option label="Button按钮" value="button"></r-select-option>
+            <r-select-option label="Icon图标" value="icon"></r-select-option>
+            <r-select-option label="Input输入框" value="input"></r-select-option>
+            <r-select-option label="Radio单选框" value="radio"></r-select-option>
+            <r-select-option label="Checkbox多选框" value="checkbox"></r-select-option>
+            <r-select-option label="Table表格" value="table"></r-select-option>
+            <r-select-option label="Select选择器" value="select"></r-select-option>
+            <r-select-option label="Datepicker日期选择器" value="datepicker"></r-select-option>
+            <r-select-option label="Timepicker时间选择器" value="timepicker"></r-select-option>
+            <r-select-option label="Upload上传" value="upload"></r-select-option>
+            <r-select-option label="Form表单" value="form"></r-select-option>
+            <r-select-option label="Card卡片" value="card"></r-select-option>
+            <r-select-option label="Message全局提示" value="message"></r-select-option>
+            <r-select-option label="Modal对话框" value="modal"></r-select-option>
+            <r-select-option label="Progress进度条" value="progress"></r-select-option>
+            <r-select-option label="Timeline时间轴" value="timeline"></r-select-option>
+            <r-select-option label="Tag标签" value="tag"></r-select-option>
+            <r-select-option label="Tooltip文字提示" value="tooltip"></r-select-option>
+            <r-select-option label="Tree树形控件" value="tree"></r-select-option>
+            <r-select-option label="Menu导航菜单" value="menu"></r-select-option>
+            <r-select-option label="Tabs标签页" value="tabs"></r-select-option>
+            <r-select-option label="Dropdown下拉菜单" value="dropdown"></r-select-option>
+            <r-select-option label="Page分页" value="page"></r-select-option>
+          </r-select>
+        </r-col>
+      </r-row>
+      <r-menu slot="aside" mode="vertical" v-model="common.activeMenu" expand>
+        <r-menu-item name="1" href="start.html">快速上手</r-menu-item>
+        <r-sub-menu name="2">
+          <template slot="title">Basic</template>
+          <r-menu-item name="2-1" href="grid.html">
+            <r-icon type="ios-grid-view-outline"></r-icon>Grid 栅格
+          </r-menu-item>
+          <r-menu-item name="2-2" href="app.html">
+            <r-icon type="ios-browsers-outline"></r-icon>App 布局
+          </r-menu-item>
+          <r-menu-item name="2-3" href="button.html">
+            <r-icon type="social-youtube-outline"></r-icon>Button 按钮
+          </r-menu-item>
+          <r-menu-item name="2-4" href="icon.html">
+            <r-icon type="ios-heart-outline"></r-icon>Icon 图标
+          </r-menu-item>
+        </r-sub-menu>
+        <r-sub-menu name="3">
+          <template slot="title">Form</template>
+          <r-menu-item name="3-1" href="input.html">
+            <r-icon type="ios-compose-outline"></r-icon>Input 输入框
+          </r-menu-item>
+          <r-menu-item name="3-2" href="radio.html">
+            <r-icon type="ios-circle-filled"></r-icon>Radio 单选框
+          </r-menu-item>
+          <r-menu-item name="3-3" href="checkbox.html">
+            <r-icon type="android-checkbox-outline"></r-icon>Checkbox 多选框
+          </r-menu-item>
+          <r-menu-item name="3-4" href="table.html">
+            <r-icon type="ios-grid-view"></r-icon>Table 表格
+          </r-menu-item>
+          <r-menu-item name="3-5" href="select.html">
+            <r-icon type="ios-arrow-down"></r-icon>Select 选择器
+          </r-menu-item>
+          <r-menu-item name="3-6" href="datepicker.html">
+            <r-icon type="ios-calendar-outline"></r-icon>DatePicker 日期选择器
+          </r-menu-item>
+          <r-menu-item name="3-7" href="timepicker.html">
+            <r-icon type="ios-clock-outline"></r-icon>TimePicker 时间选择器
+          </r-menu-item>
+          <r-menu-item name="3-8" href="upload.html">
+            <r-icon type="ios-cloud-upload-outline"></r-icon>Upload 上传
+          </r-menu-item>
+          <r-menu-item name="3-9" href="form.html">
+            <r-icon type="ios-list-outline"></r-icon>Form 表单
+          </r-menu-item>
+        </r-sub-menu>
+        <r-sub-menu name="4">
+          <template slot="title">View</template>
+          <r-menu-item name="4-1" href="card.html">
+            <r-icon type="ios-browsers-outline"></r-icon>Card 卡片
+          </r-menu-item>
+          <r-menu-item name="4-2" href="message.html">
+            <r-icon type="ios-information-outline"></r-icon>Message 全局提示
+          </r-menu-item>
+          <r-menu-item name="4-3" href="modal.html">
+            <r-icon type="ios-chatbubble-outline"></r-icon>Modal 对话框
+          </r-menu-item>
+          <r-menu-item name="4-4" href="progress.html">
+            <r-icon type="android-remove"></r-icon>Progress 进度条
+          </r-menu-item>
+          <r-menu-item name="4-5" href="timeline.html">
+            <r-icon type="android-more-vertical"></r-icon>Timeline 时间轴
+          </r-menu-item>
+          <r-menu-item name="4-6" href="tag.html">
+            <r-icon type="ios-pricetags-outline"></r-icon>Tag 标签
+          </r-menu-item>
+          <r-menu-item name="4-7" href="tooltip.html">
+            <r-icon type="chatbox-working"></r-icon>Tooltip 文字提示
+          </r-menu-item>
+          <r-menu-item name="4-8" href="tree.html">
+            <r-icon type="icon-network"></r-icon>Tree 树形控件
+          </r-menu-item>
+        </r-sub-menu>
+        <r-sub-menu name="5">
+          <template slot="title">Navigation</template>
+          <r-menu-item name="5-1" href="menu.html">
+            <r-icon type="navicon-round"></r-icon>Menu 导航菜单
+          </r-menu-item>
+          <r-menu-item name="5-2" href="tabs.html">
+            <r-icon type="social-windows-outline"></r-icon>Tabs 标签页
+          </r-menu-item>
+          <r-menu-item name="5-3" href="dropdown.html">
+            <r-icon type="arrow-down-b"></r-icon>Dropdown 下拉菜单
+          </r-menu-item>
+          <r-menu-item name="5-4" href="page.html">
+            <r-icon type="ios-book-outline"></r-icon>Page 分页
+          </r-menu-item>
+        </r-sub-menu>
+      </r-menu>
+      <div slot="main">
+        <h1>Datepicker 日期选择器</h1>
+        <div class="anchor">
+          <h2 id="概述"></h2>
+        </div>
+        <r-card>
+          <r-tabs v-model="common.tab">
+            <r-tab-pane name="1" label="示例">
+              <div class="margin-top-10">
+                <h3>开始时间</h3>
+                <r-datepicker v-model="startDate" placeholder="开始时间" clearable :disabled-date="disabledDate" format="b"></r-datepicker>
+              </div>
+              <div class="margin-top-10">
+                <h3>结束时间（size=small）</h3>
+                <r-datepicker v-model="endDate" placeholder="结束时间" clearable :disabled-date="disabledDate2" size="small"></r-datepicker>
+              </div>
+            </r-tab-pane>
+            <r-tab-pane name="2" label="代码">
+              <pre><code class="html"></code>
+                <textarea><div class="margin-top-10">
+  <h3>开始时间</h3>
+  <r-datepicker v-model="startDate" placeholder="开始时间" clearable :disabled-date="disabledDate" format="b"></r-datepicker>
+</div>
+<div class="margin-top-10">
+  <h3>结束时间（size=small）</h3>
+  <r-datepicker v-model="endDate" placeholder="结束时间" clearable :disabled-date="disabledDate2" size="small"></r-datepicker>
+</div>
+<script>
+exprot default {
+  data () {
+    return {
+      startDate: '',
+      endDate: '',
+    }
+  },
+  watch: {
+    startDate () {
+      this.endDate = ''
+    }
+  },
+  methods: {
+    disabledDate (date) {
+      /* 禁用小于今天的时期 */
+      var today = new Date
+      return +date < +today
+    },
+    disabledDate2 (date) {
+      return +date <= +(new Date(this.startDate + ' 23:59:59'))
+    }
+  }
+}
+</script>
+
+                </textarea></pre>
+            </r-tab-pane>
+          </r-tabs>
+        </r-card>
+        <div class="anchor">
+          <h2>Api</h2>
+        </div>
+        <div class="anchor">
+          <h3>Datepicker props</h3>
+        </div>
+        <div class="r-table r-table-border api">
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  <div>属性</div>
+                </th>
+                <th>
+                  <div>说明</div>
+                </th>
+                <th>
+                  <div>类型</div>
+                </th>
+                <th>
+                  <div>默认值</div>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div>value</div>
+                </td>
+                <td>
+                  <div>datepicker 的值，可使用 v-model</div>
+                </td>
+                <td>
+                  <div>Sring</div>
+                </td>
+                <td>
+                  <div>-</div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>placeholder</div>
+                </td>
+                <td>
+                  <div>默认文字</div>
+                </td>
+                <td>
+                  <div>String</div>
+                </td>
+                <td>
+                  <div>选择日期</div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>clearable</div>
+                </td>
+                <td>
+                  <div>是否可以清空</div>
+                </td>
+                <td>
+                  <div>Boolean</div>
+                </td>
+                <td>
+                  <div>false</div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>disabled</div>
+                </td>
+                <td>
+                  <div>是否禁用</div>
+                </td>
+                <td>
+                  <div>Boolean</div>
+                </td>
+                <td>
+                  <div>false</div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>size</div>
+                </td>
+                <td>
+                  <div>尺寸，可选值small，或者不设置</div>
+                </td>
+                <td>
+                  <div>String</div>
+                </td>
+                <td>
+                  <div>-</div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>disabled-date</div>
+                </td>
+                <td>
+                  <div>自定义禁用日期函数，传入参数为目标日期的23点59分59秒</div>
+                </td>
+                <td>
+                  <div>Function</div>
+                </td>
+                <td>
+                  <div>-</div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>format</div>
+                </td>
+                <td>
+                  <div>日期类型，可选值为a、b，a表示yyyy-MM-dd, b表示yyyy/MM/dd</div>
+                </td>
+                <td>
+                  <div>String</div>
+                </td>
+                <td>
+                  <div>a</div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </r-app>
+    <script>
+      new Vue({
+        el: '#app',
+        data () {
+          return {
+            common: {
+              componentValue: '',
+              activeMenu: '3-6',
+              tab: '',
+              tab2: ''
+            },
+            startDate: '',
+            endDate: '',
+          }
+        },
+        watch: {
+          startDate () {
+            this.endDate = ''
+          },
+          'common.componentValue' () {console.log(1)
+            location.href = this.common.componentValue + '.html'
+          }
+        },
+        methods: {
+          disabledDate (date) {
+            // 禁用小于今天的时期
+            var today = new Date
+            return +date < +today
+          },
+          disabledDate2 (date) {
+            return +date <= +(new Date(this.startDate + ' 23:59:59'))
+          }
+        }
+      })
+    </script>
+  </body>
+</html>
+<script>
+  setTimeout(function (){
+    var preNodes = document.getElementsByTagName('pre')
+    for (var i=0, preNode, codeNode, textNode; i<preNodes.length; i++){
+      preNode = preNodes[i]
+      codeNode = preNode.querySelector('code')
+      textNode = preNode.querySelector('textarea')
+  
+      codeNode.innerText = textNode.value.trim()
+      hljs.highlightBlock(codeNode)
+    }
+  }, 100)
+</script>

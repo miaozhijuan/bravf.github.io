@@ -7,11 +7,11 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../static/libs/ionicons/css/ionicons.min.css">
-    <link rel="stylesheet" href="../static/libs/rainbow/rainbow-ui@1.3.1.min.css">
+    <link rel="stylesheet" href="../static/libs/rainbow/rainbow-ui@1.3.2.min.css">
     <link rel="stylesheet" href="../static/libs/highlight/highlight@9.12.0.min.css">
     <link rel="stylesheet" href="../static/libs/highlight/vs.min.css">
     <script src="../static/libs/vue/vue.js"></script>
-    <script src="../static/libs/rainbow/rainbow-ui@1.3.1.min.js"></script>
+    <script src="../static/libs/rainbow/rainbow-ui@1.3.2.min.js"></script>
     <script src="../static/libs/highlight/highlight@9.12.0.min.js"></script>
     <style>
       [v-cloak] {
@@ -199,7 +199,7 @@
               </div>
               <div class="margin-top-10">
                 <h3>结束时间（size=small）</h3>
-                <r-datepicker v-model="endDate" placeholder="结束时间" clearable :disabled-date="disabledDate2" size="small"></r-datepicker>
+                <r-datepicker v-model="endDate" placeholder="结束时间" clearable :start-date="startDate" size="small"></r-datepicker>
               </div>
             </r-tab-pane>
             <r-tab-pane name="2" label="代码">
@@ -210,7 +210,7 @@
 </div>
 <div class="margin-top-10">
   <h3>结束时间（size=small）</h3>
-  <r-datepicker v-model="endDate" placeholder="结束时间" clearable :disabled-date="disabledDate2" size="small"></r-datepicker>
+  <r-datepicker v-model="endDate" placeholder="结束时间" clearable :start-date="startDate" size="small"></r-datepicker>
 </div>
 <script>
 exprot default {
@@ -230,9 +230,6 @@ exprot default {
       /* 禁用小于今天的时期 */
       var today = new Date
       return +date < +today
-    },
-    disabledDate2 (date) {
-      return +date <= +(new Date(this.startDate + ' 23:59:59'))
     }
   }
 }
@@ -365,6 +362,20 @@ exprot default {
                   <div>a</div>
                 </td>
               </tr>
+              <tr>
+                <td>
+                  <div>start-date</div>
+                </td>
+                <td>
+                  <div>设置一个开始时间，如果设置，那么当前 datepicker 小于 start-date 的日期将被禁止选择</div>
+                </td>
+                <td>
+                  <div>String</div>
+                </td>
+                <td>
+                  <div>-</div>
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -399,9 +410,6 @@ exprot default {
             var today = new Date
             return +date < +today
           },
-          disabledDate2 (date) {
-            return +date <= +(new Date(this.startDate + ' 23:59:59'))
-          }
         }
       })
     </script>

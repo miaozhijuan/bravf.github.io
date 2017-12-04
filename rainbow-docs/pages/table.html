@@ -265,10 +265,11 @@ exprot default {
       this.$alert(id)
     },
     sort (dir, field) {
-      this.loading = true
+      var me = this
+      me.loading = true
 
       setTimeout(function (){
-        this.data.sort((a, b)=>{
+        me.data.sort((a, b)=>{
           var x = a[field] - b[field]
 
           if (dir === 'asc'){
@@ -279,10 +280,10 @@ exprot default {
           }
         })
 
-        this.sortField = field
-        this.sortDir = dir
+        me.sortField = field
+        me.sortDir = dir
 
-        this.loading = false
+        me.loading = false
       }, 1000)
       
     },
@@ -636,10 +637,11 @@ exprot default {
             this.$alert(id)
           },
           sort (dir, field) {
-            this.loading = true
+            var me = this
+            me.loading = true
       
             setTimeout(function (){
-              this.data1.sort(function (a, b){
+              me.data1.sort(function (a, b){
                 var x = a[field] - b[field]
       
                 if (dir === 'asc'){
@@ -650,10 +652,10 @@ exprot default {
                 }
               })
       
-              this.sortField = field
-              this.sortDir = dir
+              me.sortField = field
+              me.sortDir = dir
       
-              this.loading = false
+              me.loading = false
             }, 1000)
             
           },

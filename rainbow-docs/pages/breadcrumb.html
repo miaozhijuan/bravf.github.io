@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Checkbox - Rainbow</title>
+    <title>Icon - Breadcrumb</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../static/libs/rainbow/rainbow-ui@1.6.6.min.css">
@@ -192,73 +192,36 @@
         </r-sub-menu>
       </r-menu>
       <div slot="main">
-        <h1>Checkbox 复选框</h1>
+        <h1>Breadcrumb 面包屑</h1>
         <div class="anchor">
           <h2 id="概述"></h2>
-        </div>
-        <div class="anchor">
-          <h3>checkbox</h3>
         </div>
         <r-card>
           <r-tabs v-model="common.tab">
             <r-tab-pane name="1" label="示例">
-              <r-checkbox v-model="common.cities" label="北京" :value="0"></r-checkbox>
-              <r-checkbox v-model="common.cities" label="上海" :value="1"></r-checkbox>
-              <r-checkbox v-model="common.cities" label="深圳" :value="2"></r-checkbox>
+              <r-breadcrumb>
+                <r-breadcrumb-item href="http://baidu.com">百度</r-breadcrumb-item>
+                <r-breadcrumb-item href="http://cnblogs.com" target="_blank">cnblogs</r-breadcrumb-item>
+                <r-breadcrumb-item>详情页</r-breadcrumb-item>
+              </r-breadcrumb>
+              <r-breadcrumb separator="&gt;">
+                <r-breadcrumb-item href="http://baidu.com">百度</r-breadcrumb-item>
+                <r-breadcrumb-item href="http://cnblogs.com" target="_blank">cnblogs</r-breadcrumb-item>
+                <r-breadcrumb-item>详情页</r-breadcrumb-item>
+              </r-breadcrumb>
             </r-tab-pane>
             <r-tab-pane name="2" label="代码">
               <pre><code class="html"></code>
-                <textarea><r-checkbox v-model="common.cities" label="北京" :value="0"></r-checkbox>
-<r-checkbox v-model="common.cities" label="上海" :value="1"></r-checkbox>
-<r-checkbox v-model="common.cities" label="深圳" :value="2"></r-checkbox>
-
-<script>
-exprot default {
-  data () {
-    return {
-      common: {
-        cities: [],
-      },
-    }
-  }
-}
-</script>
-
-                </textarea></pre>
-            </r-tab-pane>
-          </r-tabs>
-        </r-card>
-        <div class="anchor">
-          <h3>checkbox-group</h3>
-        </div>
-        <r-card>
-          <r-tabs v-model="common.tab2">
-            <r-tab-pane name="1" label="示例">
-              <r-checkbox-group v-model="common.cities">
-                <r-checkbox label="北京" :value="0"></r-checkbox>
-                <r-checkbox label="上海" :value="1"></r-checkbox>
-                <r-checkbox label="深圳" :value="2"></r-checkbox>
-              </r-checkbox-group>
-            </r-tab-pane>
-            <r-tab-pane name="2" label="代码">
-              <pre><code class="html"></code>
-                <textarea><r-checkbox-group v-model="common.cities">
-  <r-checkbox label="北京" :value="0"></r-checkbox>
-  <r-checkbox label="上海" :value="1"></r-checkbox>
-  <r-checkbox label="深圳" :value="2"></r-checkbox>
-</r-radio-group>
-
-<script>
-exprot default {
-  data () {
-    return {
-      common: {
-        cities: [],
-      },
-    }
-  }
-}
-</script>
+                <textarea><r-breadcrumb>
+  <r-breadcrumb-item href="http://baidu.com">百度</r-breadcrumb-item>
+  <r-breadcrumb-item href="http://cnblogs.com" target="_blank">cnblogs</r-breadcrumb-item>
+  <r-breadcrumb-item>详情页</r-breadcrumb-item>
+</r-breadcrumb>
+<r-breadcrumb separator="&gt;">
+  <r-breadcrumb-item href="http://baidu.com">百度</r-breadcrumb-item>
+  <r-breadcrumb-item href="http://cnblogs.com" target="_blank">cnblogs</r-breadcrumb-item>
+  <r-breadcrumb-item>详情页</r-breadcrumb-item>
+</r-breadcrumb>
 
                 </textarea></pre>
             </r-tab-pane>
@@ -268,7 +231,7 @@ exprot default {
           <h2>Api</h2>
         </div>
         <div class="anchor">
-          <h3>Checkbox props</h3>
+          <h3>Breadcrumb props</h3>
         </div>
         <div class="r-table r-table-border api">
           <table>
@@ -291,65 +254,23 @@ exprot default {
             <tbody>
               <tr>
                 <td>
-                  <div>checked-value</div>
+                  <div>separator</div>
                 </td>
                 <td>
-                  <div>checkbox 是否选中，v-model 占用值，如果和 value 相同或者 === true，如果是数组，则 value 是否在checkedValue中</div>
+                  <div>分隔符</div>
                 </td>
                 <td>
-                  <div>Sring | Number | Boolean | Array</div>
+                  <div>Sring</div>
                 </td>
                 <td>
-                  <div>-</div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div>value</div>
-                </td>
-                <td>
-                  <div>checkbox 自身值</div>
-                </td>
-                <td>
-                  <div>Sring | Number | Boolean</div>
-                </td>
-                <td>
-                  <div>-</div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div>label</div>
-                </td>
-                <td>
-                  <div>checkbox 的文本描述</div>
-                </td>
-                <td>
-                  <div>Sring | Number</div>
-                </td>
-                <td>
-                  <div>-</div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div>disabled</div>
-                </td>
-                <td>
-                  <div>是否禁用</div>
-                </td>
-                <td>
-                  <div>Boolean</div>
-                </td>
-                <td>
-                  <div>false</div>
+                  <div>/</div>
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
         <div class="anchor">
-          <h3>CheckboxGroup props</h3>
+          <h3>Breadcrumb-Item props</h3>
         </div>
         <div class="r-table r-table-border api">
           <table>
@@ -372,16 +293,30 @@ exprot default {
             <tbody>
               <tr>
                 <td>
-                  <div>checked-value</div>
+                  <div>href</div>
                 </td>
                 <td>
-                  <div>控制哪个 checkbox 选中，v-model 占用值</div>
+                  <div>链接地址</div>
                 </td>
                 <td>
-                  <div>Sring | Number | Array</div>
+                  <div>Sring</div>
                 </td>
                 <td>
-                  <div>-</div>
+                  <div> </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>target</div>
+                </td>
+                <td>
+                  <div>链接打开方式</div>
+                </td>
+                <td>
+                  <div>Sring</div>
+                </td>
+                <td>
+                  <div> </div>
                 </td>
               </tr>
             </tbody>
@@ -401,16 +336,9 @@ exprot default {
           return {
             common: {
               componentValue: '',
-              activeMenu: '3-3',
-              tab: '',
-              cities: [],
-              tab2: ''
-            },
-          }
-        },
-        methods: {
-          clickIcon () {
-            this.common.input1 = ''
+              activeMenu: '4-9',
+              tab: ''
+            }
           }
         }
       })

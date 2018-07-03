@@ -6,11 +6,11 @@
     <title>Table - Rainbow</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../static/libs/rainbow/rainbow-ui@1.7.2.min.css">
+    <link rel="stylesheet" href="../static/libs/rainbow/rainbow-ui@1.7.5.min.css">
     <link rel="stylesheet" href="../static/libs/highlight/highlight@9.12.0.min.css">
     <link rel="stylesheet" href="../static/libs/highlight/vs.min.css">
     <script src="../static/libs/vue/vue.js"></script>
-    <script src="../static/libs/rainbow/rainbow-ui@1.7.2.min.js"></script>
+    <script src="../static/libs/rainbow/rainbow-ui@1.7.5.min.js"></script>
     <script src="../static/libs/highlight/highlight@9.12.0.min.js"></script>
     <style>
       [v-cloak] {
@@ -199,7 +199,7 @@
         <r-card>
           <r-tabs v-model="common.tab">
             <r-tab-pane name="1" label="示例">
-              <r-table :data="data1" ref="table" :border="false" :show-header="true" :sort-method="sort" :sort-field="sortField" :sort-dir="sortDir" :loading="loading" @row-click="rowClick">
+              <r-table :data="data1" ref="table" :border="false" :show-header="true" :sort-method="sort" :sort-field="sortField" :sort-dir="sortDir" :loading="loading" @row-click="rowClick" show-summary>
                 <r-table-column width="50" type="checkbox"></r-table-column>
                 <r-table-column width="50" type="index"></r-table-column>
                 <r-table-column title="姓名" field="name" width="80" :ellipsis="true">
@@ -222,7 +222,7 @@
               <pre><code class="html"></code>
                 <textarea v-pre><r-table 
   :data="data1" ref="table" :border="false" :show-header="true" :sort-method="sort" 
-  :sort-field="sortField" :sort-dir="sortDir" :loading="loading" @row-click="rowClick"
+  :sort-field="sortField" :sort-dir="sortDir" :loading="loading" @row-click="rowClick" show-summary
 >
   <r-table-column width="50" type="checkbox"></r-table-column>
   <r-table-column width="50" type="index"></r-table-column>
@@ -439,6 +439,48 @@ exprot default {
                 </td>
                 <td>
                   <div>false</div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>show-summary</div>
+                </td>
+                <td>
+                  <div>是否在表尾显示合计行</div>
+                </td>
+                <td>
+                  <div>Boolean</div>
+                </td>
+                <td>
+                  <div>false</div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>summary-text</div>
+                </td>
+                <td>
+                  <div>合计行第一列的文本</div>
+                </td>
+                <td>
+                  <div>Boolean</div>
+                </td>
+                <td>
+                  <div>合计</div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>summary-method</div>
+                </td>
+                <td>
+                  <div>自定义的合计计算方法</div>
+                </td>
+                <td>
+                  <div>Function</div>
+                </td>
+                <td>
+                  <div> </div>
                 </td>
               </tr>
             </tbody>

@@ -211,6 +211,8 @@
                 <textarea><r-upload v-model="images" action="//jsonplaceholder.typicode.com/posts/" :on-success="onSuccess" 
 :on-error="onError" :on-remove="onRemove" :multiple="true" :on-preview="onPreview" 
 :before-upload="beforeUpload" :limit="5">
+  <r-button icon="ios-cloud-upload-outline">上传文件</r-button>
+  
 <script>
 exprot default {
   data () {
@@ -269,6 +271,7 @@ exprot default {
                 <textarea><r-upload ref="upload2" v-model="images" action="//jsonplaceholder.typicode.com/posts/" :on-success="onSuccess" 
 :on-error="onError" :on-remove="onRemove" :multiple="true" 
 :on-preview="onPreview" list-type="image">
+  <r-button icon="ios-cloud-upload-outline">上传文件</r-button>
 
 <script>
 exprot default {

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Progress - Rainbow</title>
+    <title>Alert - Rainbow</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../static/libs/rainbow/rainbow-ui@1.8.8.min.css">
@@ -196,24 +196,44 @@
         </r-sub-menu>
       </r-menu>
       <div slot="main">
-        <h1>Progress 进度条</h1>
+        <h1>Alert 警告</h1>
         <div class="anchor">
           <h2 id="概述"></h2>
         </div>
         <r-card>
           <r-tabs v-model="common.tab">
-            <r-tab-pane name="1" label="示例">
-              <r-progress :percent="10"></r-progress>
-              <r-progress :percent="20" status="active"></r-progress>
-              <r-progress :percent="40" status="wrong"></r-progress>
-              <r-progress :percent="100" status="success" :stroke-width="5" hide-info></r-progress>
+            <r-tab-pane name="1" label="示例">       
+              <div class="margin-top-10">
+                <r-alert type="success">成功提示的文案</r-alert>
+                <r-alert type="info">消息提示的文案</r-alert>
+                <r-alert closeable type="warning">警告提示的文案</r-alert>
+                <r-alert closeable type="danger" @close="close">
+                  <p>错误提示的文案</p>
+                  <p>错误提示的文案2</p><a href="https://baidu.com">百度</a>
+                </r-alert>
+              </div>
             </r-tab-pane>
             <r-tab-pane name="2" label="代码">
               <pre><code class="html"></code>
-                <textarea v-pre><r-progress :percent="10"></r-progress>
-<r-progress :percent="20" status="active"></r-progress>
-<r-progress :percent="40" status="wrong"></r-progress>
-<r-progress :percent="100" status="success" :stroke-width="5" hide-info></r-progress>
+                <textarea v-pre><div class="margin-top-10">
+    <r-alert type="success">成功提示的文案</r-alert>
+    <r-alert type="info">消息提示的文案</r-alert>
+    <r-alert closeable type="warning">警告提示的文案</r-alert>
+    <r-alert closeable type="danger" @close="close">
+      <p>错误提示的文案</p>
+      <p>错误提示的文案2</p><a href="https://baidu.com">百度</a>
+    </r-alert>
+  </div>
+
+  <script>
+  export default {
+    methods: {
+      close (e) {
+        console.log(e)
+      }
+    }
+  }
+  </script>
 
                 </textarea></pre>
             </r-tab-pane>
@@ -223,7 +243,7 @@
           <h2>Api</h2>
         </div>
         <div class="anchor">
-          <h3>Progress props</h3>
+          <h3>Tag props</h3>
         </div>
         <div class="r-table r-table-border api">
           <table>
@@ -246,58 +266,63 @@
             <tbody>
               <tr>
                 <td>
-                  <div>percent</div>
+                  <div>type</div>
                 </td>
                 <td>
-                  <div>当前进度 0-100</div>
-                </td>
-                <td>
-                  <div>Number</div>
-                </td>
-                <td>
-                  <div>-</div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div>status</div>
-                </td>
-                <td>
-                  <div>进度条状态，可选值 normal、active、wrong、success</div>
+                  <div>枚举，一共有5个可选值，primary、success、info、warning、danger</div>
                 </td>
                 <td>
                   <div>String</div>
                 </td>
                 <td>
-                  <div>normal</div>
+                  <div>info</div>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <div>stroke-width</div>
+                  <div>closeable</div>
                 </td>
                 <td>
-                  <div>进度条高度</div>
-                </td>
-                <td>
-                  <div>Number</div>
-                </td>
-                <td>
-                  <div>10</div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div>hide-info</div>
-                </td>
-                <td>
-                  <div>是否隐藏数字进度信息</div>
+                  <div>标签是否可以关闭</div>
                 </td>
                 <td>
                   <div>Boolean</div>
                 </td>
                 <td>
                   <div>false</div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="anchor">
+          <h3>Tag events</h3>
+        </div>
+        <div class="r-table r-table-border api">
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  <div>事件名</div>
+                </th>
+                <th>
+                  <div>说明</div>
+                </th>
+                <th>
+                  <div>返回值</div>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div>on-close</div>
+                </td>
+                <td>
+                  <div>关闭时触发</div>
+                </td>
+                <td>
+                  <div>event</div>
                 </td>
               </tr>
             </tbody>
@@ -317,13 +342,16 @@
           return {
             common: {
               componentValue: '',
-              activeMenu: '4-4',
+              activeMenu: '4-10',
               tab: '',
               tab2: ''
             },
           }
         },
         methods: {
+          close (e, name) {
+            console.log(e, name)
+          }
         }
       })
     </script>

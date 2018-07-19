@@ -490,7 +490,7 @@ exprot default {
                   <div>on-success</div>
                 </td>
                 <td>
-                  <div>文件上传成功时的钩子，返回参数为response，file。注意，此钩子必须设置，在回调里，要主动把 response的name,url 添加到 value 中，以实现双向绑定的值同步。之所以如此，是因为 response 的数据结构不固定，无法在组件内部处理。</div>
+                  <div>文件上传成功时的钩子，返回参数为response，file。注意，在回调里，要主动把 response的name,url 添加到 value 中，以实现双向绑定的值同步。之所以如此，是因为 response 的数据结构不固定，无法在组件内部处理。</div>
                 </td>
                 <td>
                   <div>Function</div>
@@ -567,6 +567,20 @@ exprot default {
                 </td>
                 <td>
                   <div>file</div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>removeable</div>
+                </td>
+                <td>
+                  <div>是否显示删除按钮</div>
+                </td>
+                <td>
+                  <div>Boolean</div>
+                </td>
+                <td>
+                  <div>true</div>
                 </td>
               </tr>
             </tbody>

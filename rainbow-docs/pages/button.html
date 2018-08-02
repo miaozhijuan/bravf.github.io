@@ -7,8 +7,8 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="../static/libs/vue/vue.js"></script>
-    <link rel="stylesheet" href="../static/libs/rainbow/rainbow-ui@1.9.9.min.css">
-    <script src="../static/libs/rainbow/rainbow-ui@1.9.9.min.js"></script>
+    <link rel="stylesheet" href="../static/libs/rainbow/rainbow-ui@1.9.10.min.css">
+    <script src="../static/libs/rainbow/rainbow-ui@1.9.10.min.js"></script>
     <link rel="stylesheet" href="../static/libs/highlight/highlight@9.12.0.min.css">
     <link rel="stylesheet" href="../static/libs/highlight/vs.min.css">
     <script src="../static/libs/highlight/highlight@9.12.0.min.js"></script>
@@ -244,7 +244,7 @@
 <r-button icon="plus-round">添加</r-button>
 <r-button icon="plus-round" icon-pos="after">添加</r-button>
 <r-button icon="plus-round"></r-button>
-<r-button icon="plus-round" loading>提交信息</r-button>
+<r-button loading>提交信息</r-button>
 
                 </textarea></pre>
             </r-tab-pane>
@@ -256,7 +256,7 @@
         <r-card>
           <r-tabs v-model="common.tab2">
             <r-tab-pane name="1" label="示例">
-              <r-button-group>
+              <r-button-group align="right">
                 <r-button>昨日</r-button>
                 <r-button disabled>今日</r-button>
                 <r-button>明日</r-button>
@@ -264,7 +264,7 @@
             </r-tab-pane>
             <r-tab-pane name="2" label="代码">
               <pre><code class="html"></code>
-                <textarea><r-button-group>
+                <textarea><r-button-group align="right">
   <r-button>昨日</r-button>
   <r-button disabled>今日</r-button>
   <r-button>明日</r-button>
@@ -448,6 +448,20 @@
                 </td>
                 <td>
                   <div>-</div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>align</div>
+                </td>
+                <td>
+                  <div>按钮组对齐的位置，可选值left，center，right</div>
+                </td>
+                <td>
+                  <div>String</div>
+                </td>
+                <td>
+                  <div>left</div>
                 </td>
               </tr>
             </tbody>

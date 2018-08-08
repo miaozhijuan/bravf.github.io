@@ -7,8 +7,8 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="../static/libs/vue/vue.js"></script>
-    <link rel="stylesheet" href="../static/libs/rainbow/rainbow-ui@1.9.10.min.css">
-    <script src="../static/libs/rainbow/rainbow-ui@1.9.10.min.js"></script>
+    <link rel="stylesheet" href="../static/libs/rainbow/rainbow-ui@1.9.13.min.css">
+    <script src="../static/libs/rainbow/rainbow-ui@1.9.13.min.js"></script>
     <link rel="stylesheet" href="../static/libs/highlight/highlight@9.12.0.min.css">
     <link rel="stylesheet" href="../static/libs/highlight/vs.min.css">
     <script src="../static/libs/highlight/highlight@9.12.0.min.js"></script>
@@ -227,6 +227,32 @@
             </r-tab-pane>
           </r-tabs>
         </r-card>
+        <r-card>
+          <r-tabs v-model="common.tab2">
+            <r-tab-pane name="1" label="示例">
+              <r-timeline pending mode="horizontal">
+                <r-timeline-item color="green">
+                  <r-icon type="trophy" slot="dot"></r-icon><span>发布1.0版本</span>
+                </r-timeline-item>
+                <r-timeline-item>发布2.0版本</r-timeline-item>
+                <r-timeline-item>发布3.0版本</r-timeline-item>
+                <r-timeline-item color="red"><a href="#">查看更多</a></r-timeline-item>
+              </r-timeline>
+            </r-tab-pane>
+            <r-tab-pane name="2" label="代码">
+              <pre><code class="html"></code>
+                <textarea v-pre><r-timeline pending mode="horizontal">
+  <r-timeline-item color="green">
+    <r-icon type="trophy" slot="dot"></r-icon><span>发布1.0版本</span>
+  </r-timeline-item>
+  <r-timeline-item>发布2.0版本</r-timeline-item>
+  <r-timeline-item>发布3.0版本</r-timeline-item>
+  <r-timeline-item color="red"><a href="#">查看更多</a></r-timeline-item>
+</r-timeline>
+                </textarea></pre>
+            </r-tab-pane>
+          </r-tabs>
+        </r-card>
         <div class="anchor">
           <h2>Api</h2>
         </div>
@@ -264,6 +290,20 @@
                 </td>
                 <td>
                   <div>false</div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>mode</div>
+                </td>
+                <td>
+                  <div>横向或纵向</div>
+                </td>
+                <td>
+                  <div>String, 可选值 vertical, horizontal</div>
+                </td>
+                <td>
+                  <div>vertical</div>
                 </td>
               </tr>
             </tbody>

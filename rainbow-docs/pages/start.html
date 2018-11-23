@@ -35,7 +35,7 @@
       .hljs{
         background-color: #f7f7f7;
       }
-      .hljs-name{
+      .hljs-name, .hljs-keyword{
         color: #6089ec;
         font-weight: normal;
       }
@@ -198,7 +198,20 @@
       <div slot="main">
         <h1>安装</h1>
         <div class="anchor">
-          <h2 id="CDN_引入"></h2>
+          <h2>模块化</h2>
+          <pre><code></code>
+            <textarea>npm isntall --save rainbow-nash
+
+import Vue from 'vue'
+import Rainbow from 'rainbow-nash'
+import 'rainbow-nash/dist/rainbow-nash.css'
+
+Vue.use(Rainbow)
+
+            </textarea></pre>
+        </div>
+        <div class="anchor">
+          <h2>直接引入</h2>
           <pre><code></code>
             <textarea><!-- 引入Vue -->
 <script src="//vuejs.org/js/vue.min.js"></script>

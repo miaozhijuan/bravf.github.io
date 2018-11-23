@@ -7,8 +7,8 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="../static/libs/vue/vue.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/rainbow-nash@0.1.1/dist/rainbow-nash.css">
-    <script src="https://unpkg.com/rainbow-nash@0.1.1/dist/rainbow-nash.umd.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/rainbow-nash@0.1.2/dist/rainbow-nash.css">
+    <script src="https://unpkg.com/rainbow-nash@0.1.2/dist/rainbow-nash.umd.min.js"></script>
     <link rel="stylesheet" href="../static/libs/highlight/highlight@9.12.0.min.css">
     <link rel="stylesheet" href="../static/libs/highlight/vs.min.css">
     <script src="../static/libs/highlight/highlight@9.12.0.min.js"></script>
@@ -64,8 +64,8 @@
   <body>
     <r-app id="app" v-cloak>
       <r-row slot="header" align-items="center" class="demo-header">
-        <r-col :span="3" style="padding-left: 10px; color: #409EFF">
-          <h1>Rainbow</h1>
+        <r-col :span="3" style="padding-left: 10px">
+          <h1>Rainbow.Doc</h1>
         </r-col>
         <r-col :span="4">
           <r-select placeholder="搜索组件..." filterable v-model="common.componentValue">
@@ -254,19 +254,14 @@
                   </r-select>
                 </r-form-item>
                 <r-form-item label="日期控件">
-                  <r-row align-items="center">
-                    <r-col span="11">
-                      <r-form-item prop="date">
-                        <r-datepicker v-model="formItem.date" clearable></r-datepicker>
-                      </r-form-item>
-                    </r-col>
-                    <r-col span="2" style="text-align:center">-</r-col>
-                    <r-col span="11">
-                      <r-form-item prop="time">
-                        <r-timepicker v-model="formItem.time" clearable></r-timepicker>
-                      </r-form-item>
-                    </r-col>
-                  </r-row>
+                  <div style="display:flex; align-items:baseline">
+                    <r-form-item prop="date">
+                      <r-datepicker v-model="formItem.date" clearable></r-datepicker>
+                    </r-form-item><span style="flex-basis:50px;text-align:center">-</span>
+                    <r-form-item prop="time">
+                      <r-timepicker v-model="formItem.time" clearable></r-timepicker>
+                    </r-form-item>
+                  </div>
                 </r-form-item>
                 <r-form-item label="单选框" prop="radio">
                   <r-radio-group v-model="formItem.radio">
@@ -290,11 +285,11 @@
                 </r-form-item>
                 <r-form-item required v-for="(item, index) in formItem.tels.items" :key="index" :label="'电话' + (index + 1)" :prop="'tels.items[' + index + '].value'" :rules="[{validate: required, msg:'不能为空'}]">
                   <r-row>
-                    <r-col span="18">
+                    <r-col>
                       <r-input v-model="item.value"></r-input>
                     </r-col>
-                    <r-col span="4" offset="1">
-                      <r-button @click.native="delTel(item)">删除</r-button>
+                    <r-col offset="1">
+                      <r-button type="danger" size="small" @click.native="delTel(item)">删除</r-button>
                     </r-col>
                   </r-row>
                 </r-form-item>
@@ -326,19 +321,14 @@
     </r-select>
   </r-form-item>
   <r-form-item label="日期控件">
-    <r-row align-items="center">
-      <r-col span="11">
-        <r-form-item prop="date">
-          <r-datepicker v-model="formItem.date" clearable></r-datepicker>
-        </r-form-item>
-      </r-col>
-      <r-col span="2" style="text-align:center">-</r-col>
-      <r-col span="11">
-        <r-form-item prop="time">
-          <r-timepicker v-model="formItem.time" clearable></r-timepicker>
-        </r-form-item>
-      </r-col>
-    </r-row>
+    <div style="display:flex; align-items:baseline">
+      <r-form-item prop="date">
+        <r-datepicker v-model="formItem.date" clearable></r-datepicker>
+      </r-form-item><span style="flex-basis:50px;text-align:center">-</span>
+      <r-form-item prop="time">
+        <r-timepicker v-model="formItem.time" clearable></r-timepicker>
+      </r-form-item>
+    </div>
   </r-form-item>
   <r-form-item label="单选框" prop="radio">
     <r-radio-group v-model="formItem.radio">
@@ -363,11 +353,11 @@
   <r-form-item required v-for="(item, index) in formItem.tels.items" :key="index" :label="'电话' + (index + 1)" 
   :prop="'tels.items[' + index + '].value'" :rules="[{validate: required, msg:'不能为空'}]">
     <r-row>
-      <r-col span="18">
+      <r-col>
         <r-input v-model="item.value"></r-input>
       </r-col>
-      <r-col span="4" offset="1">
-        <r-button @click.native="delTel(item)">删除</r-button>
+      <r-col offset="1">
+        <r-button type="danger" size="small" @click.native="delTel(item)">删除</r-button>
       </r-col>
     </r-row>
   </r-form-item>

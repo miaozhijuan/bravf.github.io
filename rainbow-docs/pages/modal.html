@@ -17,13 +17,18 @@
         display: none;
       }
       .demo-header{
-        height: 60px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
       }
       .code-font{
         font-family: Consolas,Menlo,Courier,monospace;
       }
       .demo-header h1{
+        margin-right: auto;
         font-family: Consolas,Menlo,Courier,monospace;
+        font-size: 42px;
       }
       pre code{
         font-family: Consolas,Menlo,Courier,monospace;
@@ -63,42 +68,14 @@
   </head>
   <body>
     <r-app id="app" v-cloak>
-      <r-row slot="header" align-items="center" class="demo-header">
-        <r-col :span="3" style="padding-left: 10px">
-          <h1>Rainbow.Doc</h1>
-        </r-col>
-        <r-col :span="4">
-          <r-select placeholder="搜索组件..." filterable v-model="common.componentValue">
-            <r-select-option label="Grid栅格" value="grid"></r-select-option>
-            <r-select-option label="App布局" value="app"></r-select-option>
-            <r-select-option label="Button按钮" value="button"></r-select-option>
-            <r-select-option label="Icon图标" value="icon"></r-select-option>
-            <r-select-option label="Input输入框" value="input"></r-select-option>
-            <r-select-option label="Radio单选框" value="radio"></r-select-option>
-            <r-select-option label="Checkbox多选框" value="checkbox"></r-select-option>
-            <r-select-option label="Table表格" value="table"></r-select-option>
-            <r-select-option label="Select选择器" value="select"></r-select-option>
-            <r-select-option label="Datepicker日期选择器" value="datepicker"></r-select-option>
-            <r-select-option label="Timepicker时间选择器" value="timepicker"></r-select-option>
-            <r-select-option label="Upload上传" value="upload"></r-select-option>
-            <r-select-option label="Form表单" value="form"></r-select-option>
-            <r-select-option label="Card卡片" value="card"></r-select-option>
-            <r-select-option label="Message全局提示" value="message"></r-select-option>
-            <r-select-option label="Modal对话框" value="modal"></r-select-option>
-            <r-select-option label="Progress进度条" value="progress"></r-select-option>
-            <r-select-option label="Timeline时间轴" value="timeline"></r-select-option>
-            <r-select-option label="Tag标签" value="tag"></r-select-option>
-            <r-select-option label="Tooltip文字提示" value="tooltip"></r-select-option>
-            <r-select-option label="Tree树形控件" value="tree"></r-select-option>
-            <r-select-option label="Breadcrumb面包屑" value="breadcrumb"></r-select-option>
-            <r-select-option label="Alert警告组件" value="alert"></r-select-option>
-            <r-select-option label="Menu导航菜单" value="menu"></r-select-option>
-            <r-select-option label="Tabs标签页" value="tabs"></r-select-option>
-            <r-select-option label="Dropdown下拉菜单" value="dropdown"></r-select-option>
-            <r-select-option label="Page分页" value="page"></r-select-option>
-          </r-select>
-        </r-col>
-      </r-row>
+      <div slot="header" align-items="center" class="demo-header">
+        <h1 style="color: #f4615c">Rainbow.Doc</h1>
+        <r-icon type="paper-airplane"></r-icon>
+        <r-dropdown label="木已成鲨鱼" style="margin-left: 4px">
+          <r-dropdown-item>个人信息</r-dropdown-item>
+          <r-dropdown-item>登出</r-dropdown-item>
+        </r-dropdown>
+      </div>
       <r-menu slot="aside" mode="vertical" v-model="common.activeMenu" expand>
         <r-menu-item name="1" href="start.html">快速上手</r-menu-item>
         <r-sub-menu name="2">

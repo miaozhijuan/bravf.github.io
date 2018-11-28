@@ -30,6 +30,10 @@
         font-family: Consolas,Menlo,Courier,monospace;
         font-size: 42px;
       }
+      .demo-header h1 span{
+        font-size: 60px;
+        transform: rotate(7deg);
+      }
       pre code{
         font-family: Consolas,Menlo,Courier,monospace;
         line-height: 2;
@@ -69,7 +73,7 @@
   <body>
     <r-app id="app" v-cloak>
       <div slot="header" align-items="center" class="demo-header">
-        <h1 style="color: #f4615c">Rainbow.Doc</h1>
+        <h1 style="color: #f4615c"> <span>R</span><i>ainbow.Doc</i></h1>
         <r-icon type="paper-airplane"></r-icon>
         <r-dropdown label="木已成鲨鱼" style="margin-left: 4px">
           <r-dropdown-item>个人信息</r-dropdown-item>
@@ -181,6 +185,11 @@
           <r-tabs v-model="common.tab">
             <r-tab-pane name="1" label="示例">
               <r-table :data="data1" ref="table" :border="false" :show-header="true" :sort-method="sort" :sort-field="sortField" :sort-dir="sortDir" :loading="loading" @row-click="rowClick" show-summary>
+                <r-table-column width="50" type="expand" align="center">
+                  <template slot-scope="scope">
+                    <div>{{scope.data.name}}</div>
+                  </template>
+                </r-table-column>
                 <r-table-column width="50" type="checkbox"></r-table-column>
                 <r-table-column width="50" type="index"></r-table-column>
                 <r-table-column title="姓名" field="name" width="80" :ellipsis="true">
@@ -205,6 +214,11 @@
   :data="data1" ref="table" :border="false" :show-header="true" :sort-method="sort" 
   :sort-field="sortField" :sort-dir="sortDir" :loading="loading" @row-click="rowClick" show-summary
 >
+  <r-table-column width="50" type="expand" align="center">
+    <template slot-scope="scope">
+      <div>{{scope.data.name}}</div>
+    </template>
+  </r-table-column>
   <r-table-column width="50" type="checkbox"></r-table-column>
   <r-table-column width="50" type="index"></r-table-column>
   <r-table-column title="姓名" field="name" width="80" :ellipsis="true">
@@ -610,7 +624,7 @@ exprot default {
                   <div>type</div>
                 </td>
                 <td>
-                  <div>列类型，可选值有 index、checkbox、radio 或者不设置</div>
+                  <div>列类型，可选值有 index、checkbox、radio、expand 或者不设置</div>
                 </td>
                 <td>
                   <div>Sring</div>

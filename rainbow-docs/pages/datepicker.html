@@ -30,6 +30,10 @@
         font-family: Consolas,Menlo,Courier,monospace;
         font-size: 42px;
       }
+      .demo-header h1 span{
+        font-size: 60px;
+        transform: rotate(7deg);
+      }
       pre code{
         font-family: Consolas,Menlo,Courier,monospace;
         line-height: 2;
@@ -69,7 +73,7 @@
   <body>
     <r-app id="app" v-cloak>
       <div slot="header" align-items="center" class="demo-header">
-        <h1 style="color: #f4615c">Rainbow.Doc</h1>
+        <h1 style="color: #f4615c"> <span>R</span><i>ainbow.Doc</i></h1>
         <r-icon type="paper-airplane"></r-icon>
         <r-dropdown label="木已成鲨鱼" style="margin-left: 4px">
           <r-dropdown-item>个人信息</r-dropdown-item>
